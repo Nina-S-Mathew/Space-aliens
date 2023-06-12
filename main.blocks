@@ -1,4 +1,4 @@
-<xml xmlns="https://developers.google.com/blockly/xml"><block type="pxt-on-start" id="v23{|s)1*]VxW:f1!d(F" x="0" y="0"><statement name="HANDLER"><block type="game_show_long_text" id="pg[:D*aBxaB_Q[e~~*)o"><field name="layout">DialogLayout.Top</field><value name="str"><shadow type="text" id="{MjS_Q?15gr[^_I!.Qjc"><field name="TEXT">Hello World!</field></shadow></value><next><block type="gamesetbackgroundimage" id="ZGE_gx_]Aa5#sQUE)!9i"><value name="img"><shadow type="background_image_picker" id="i=eUZ~xbD]_QWV[t@`#i"><field name="img">img`
+<xml xmlns="https://developers.google.com/blockly/xml"><variables><variable id="/N~u(x.ySEPLX4+9g|S$">mySprite</variable><variable type="KIND_SpriteKind" id="ytmr=FIlq.8]qSLSxa5a">Player</variable><variable type="KIND_SpriteKind" id="oc%pMM-5.gVTBB_x)`[=">Projectile</variable><variable type="KIND_SpriteKind" id="to+c?(c~:KGsCP;zPSCW">Food</variable><variable type="KIND_SpriteKind" id="WsYjug%oieHM*8iI%q]R">Enemy</variable></variables><block type="pxt-on-start" id="t-ULixFRFvWuS:5?*nuP" x="0" y="0"><statement name="HANDLER"><block type="game_show_long_text" id="H%1Ep,^gSWRXXLUy+IST"><field name="layout">DialogLayout.Top</field><value name="str"><shadow type="text" id="n+)S:z$6MJ1Th-|qY50H"><field name="TEXT">Start! Press A!</field></shadow></value><next><block type="gamesetbackgroundimage" id="HLH`rMF)pag;++Kctz1q"><value name="img"><shadow type="background_image_picker" id="SV;SnsYNm%BGnv~Jd[x{"><field name="img">img`
 ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
 ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
 ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
@@ -119,4 +119,19 @@ dd3333333333333333333dddddd333333ddddddddd3333333333333333333dddddd333333ddddddd
 3333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333
 3333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333
 3333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333
-`</field><data>{"commentRefs":[],"fieldData":{"img":"i=eUZ~xbD]_QWV[t@`#i"}}</data></shadow></value></block></next></block></statement></block></xml>
+`</field><data>{"commentRefs":[],"fieldData":{"img":"SV;SnsYNm%BGnv~Jd[x{"}}</data></shadow></value><next><block type="variables_set" id="Lcg2Gk[u*(3RUj1YxWM8"><field name="VAR" id="/N~u(x.ySEPLX4+9g|S$">mySprite</field><value name="VALUE"><shadow xmlns="http://www.w3.org/1999/xhtml" type="math_number"><field name="NUM">0</field></shadow><block type="spritescreate" id="9ACVbX]L966KKk5le`:Q"><value name="img"><shadow type="screen_image_picker" id="W1aU3IKA__uDut$q7/5z"><field name="img">img`
+e e e . . . . e e e . . . . 
+c d d c . . c d d c . . . . 
+c b d d f f d d b c . . . . 
+c 3 b d d b d b 3 c . . . . 
+f b 3 d d d d 3 b f . . . . 
+e d d d d d d d d e . . . . 
+e d f d d d d f d e . b f b 
+f d d f d d f d d f . f d f 
+f b d d b b d d 2 f . f d f 
+. f 2 2 2 2 2 2 b b f f d f 
+. f b d d d d d d b b d b f 
+. f d d d d d b d d f f f . 
+. f d f f f d f f d f . . . 
+. f f . . f f . . f f . . . 
+`</field><data>{"commentRefs":[],"fieldData":{"img":"W1aU3IKA__uDut$q7/5z"}}</data></shadow></value><value name="kind"><shadow type="spritekind" id="(fB0|Ic3f0Jtp@U{bgYv"><field name="MEMBER">Player</field></shadow></value></block></value></block></next></block></next></block></statement></block></xml>
