@@ -1,6 +1,3 @@
-function menu_scene () {
-	
-}
 function game_scene () {
     scene.setBackgroundImage(img`
         ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
@@ -124,22 +121,6 @@ function game_scene () {
         3333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333
         3333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333
         `)
-    mySprite = sprites.create(img`
-        e e e . . . . e e e . . . . 
-        8 1 1 6 . . 6 1 1 8 . . . . 
-        8 3 1 1 f f 1 1 3 8 . . . . 
-        8 3 6 1 1 6 1 6 3 8 . . . . 
-        f 6 3 1 1 1 1 3 6 f . . . . 
-        e 1 1 1 1 1 1 1 1 e . . . . 
-        e 1 f 1 1 1 1 f 1 e . 6 f 6 
-        f 1 1 f 1 1 f 1 1 f . f 1 f 
-        f 6 1 1 b b 1 1 2 f . f 1 f 
-        . f 2 2 2 2 2 2 6 6 f f 1 f 
-        . f b 1 1 1 1 1 1 6 6 1 6 f 
-        . f 1 6 1 1 1 6 1 1 f f f . 
-        . f 1 f f f 1 f f 1 f . . . 
-        . f f . . f f . . f f . . . 
-        `, SpriteKind.Player)
     controller.moveSprite(mySprite, 100, 100)
     mySprite2 = sprites.create(img`
         . . a a a . . . . a a a . . . . 
@@ -302,4 +283,8 @@ mySprite = sprites.create(img`
     . f 1 f f f 1 f f 1 f . . . 
     . f f . . f f . . f f . . . 
     `, SpriteKind.Player)
-mySprite.sayText("MT" + " Game Studios")
+mySprite.setStayInScreen(false)
+mySprite.sayText("MT" + " Game Studios", 5000, false)
+timer.after(5000, function () {
+    game_scene()
+})
