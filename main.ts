@@ -1,3 +1,23 @@
+controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
+    projectile = sprites.createProjectileFromSprite(img`
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . 3 3 . . . . . . . 
+        . . . . . . 3 1 1 3 . . . . . . 
+        . . . . . . 3 1 1 3 . . . . . . 
+        . . 3 2 2 3 1 1 1 1 3 2 2 . . . 
+        . . 3 3 1 1 1 1 1 1 1 1 3 3 . . 
+        . . 3 3 1 1 1 1 1 1 1 1 3 3 . . 
+        . . . 3 1 1 1 1 1 1 1 1 3 . . . 
+        . . . . 3 1 1 1 1 1 1 3 . . . . 
+        . . . . 2 1 1 1 1 1 1 2 . . . . 
+        . . . . 2 1 1 3 3 1 1 2 . . . . 
+        . . . . 3 3 3 2 2 2 3 3 . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        `, mySprite, 1, -100)
+})
 function game_scene () {
     scene.setBackgroundImage(img`
         ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
@@ -144,6 +164,7 @@ function game_scene () {
     mySprite.setPosition(145, 108)
 }
 let mySprite2: Sprite = null
+let projectile: Sprite = null
 let mySprite: Sprite = null
 scene.setBackgroundImage(img`
     cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc
@@ -287,4 +308,7 @@ mySprite.setStayInScreen(false)
 mySprite.sayText("MT" + " Game Studios", 5000, false)
 timer.after(5000, function () {
     game_scene()
+})
+game.onUpdateInterval(2000, function () {
+	
 })
