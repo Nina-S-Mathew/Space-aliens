@@ -144,24 +144,7 @@ function game_scene () {
         3333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333
         `)
     controller.moveSprite(CatHero, 100, 100)
-    EnemyDog = sprites.create(img`
-        . . a a a . . . . a a a . . . . 
-        . a 7 7 7 c . . c 7 7 7 a . . . 
-        a 7 7 7 7 7 c c 7 7 7 7 7 a . . 
-        a 7 7 a a 7 7 7 7 a a 7 7 a . . 
-        c 7 a a 7 7 7 7 7 7 a a 7 c . . 
-        . c c 7 7 7 7 7 7 7 7 c c . . . 
-        . . c 7 f 7 7 7 7 f 7 c . . . . 
-        . . f 7 7 7 a a 7 7 7 f . . f f 
-        . . f a 7 7 f f 7 7 5 f . f 7 f 
-        . . . f 5 5 5 5 5 5 a a f 7 7 f 
-        . . . f a 7 7 7 7 7 7 a a 7 f . 
-        . . . f 7 7 7 7 7 a 7 7 f f . . 
-        . . . f 7 f f f 7 f f 7 f . . . 
-        . . . f f . . f f . . f f . . . 
-        `, SpriteKind.Enemy)
-    EnemyDog.setPosition(70, 10)
-    EnemyDog.setStayInScreen(false)
+    CatHero.setPosition(randint(0, 160), 8)
     CatHero.setStayInScreen(true)
     CatHero.setPosition(145, 108)
 }
@@ -312,5 +295,24 @@ timer.after(5000, function () {
     game_scene()
 })
 game.onUpdateInterval(2000, function () {
-	
+    EnemyDog = sprites.create(img`
+        . . a a a . . . . a a a . . . . 
+        . a 7 7 7 c . . c 7 7 7 a . . . 
+        a 7 7 7 7 7 c c 7 7 7 7 7 a . . 
+        a 7 7 a a 7 7 7 7 a a 7 7 a . . 
+        c 7 a a 7 7 7 7 7 7 a a 7 c . . 
+        . c c 7 7 7 7 7 7 7 7 c c . . . 
+        . . c 7 f 7 7 7 7 f 7 c . . . . 
+        . . f 7 7 7 a a 7 7 7 f . . f f 
+        . . f a 7 7 f f 7 7 5 f . f 7 f 
+        . . . f 5 5 5 5 5 5 a a f 7 7 f 
+        . . . f a 7 7 7 7 7 7 a a 7 f . 
+        . . . f 7 7 7 7 7 a 7 7 f f . . 
+        . . . f 7 f f f 7 f f 7 f . . . 
+        . . . f f . . f f . . f f . . . 
+        `, SpriteKind.Enemy)
+    EnemyDog.x = scene.screenHeight()
+    EnemyDog.y = 3
+    EnemyDog.setVelocity(0, 50)
+    EnemyDog.x = randint(1, 160)
 })
