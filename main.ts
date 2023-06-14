@@ -16,7 +16,9 @@ controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
         . . . . 3 3 3 2 2 2 3 3 . . . . 
         . . . . . . . . . . . . . . . . 
         . . . . . . . . . . . . . . . . 
-        `, mySprite, 1, -100)
+        `, CatHero, 1, -100)
+    music.play(music.melodyPlayable(music.pewPew), music.PlaybackMode.UntilDone)
+    music.setVolume(255)
 })
 function game_scene () {
     scene.setBackgroundImage(img`
@@ -141,8 +143,8 @@ function game_scene () {
         3333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333
         3333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333
         `)
-    controller.moveSprite(mySprite, 100, 100)
-    mySprite2 = sprites.create(img`
+    controller.moveSprite(CatHero, 100, 100)
+    EnemyDog = sprites.create(img`
         . . a a a . . . . a a a . . . . 
         . a 7 7 7 c . . c 7 7 7 a . . . 
         a 7 7 7 7 7 c c 7 7 7 7 7 a . . 
@@ -158,14 +160,14 @@ function game_scene () {
         . . . f 7 f f f 7 f f 7 f . . . 
         . . . f f . . f f . . f f . . . 
         `, SpriteKind.Enemy)
-    mySprite2.setPosition(70, 10)
-    mySprite2.setStayInScreen(false)
-    mySprite.setStayInScreen(true)
-    mySprite.setPosition(145, 108)
+    EnemyDog.setPosition(70, 10)
+    EnemyDog.setStayInScreen(false)
+    CatHero.setStayInScreen(true)
+    CatHero.setPosition(145, 108)
 }
-let mySprite2: Sprite = null
+let EnemyDog: Sprite = null
 let projectile: Sprite = null
-let mySprite: Sprite = null
+let CatHero: Sprite = null
 scene.setBackgroundImage(img`
     cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc
     cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc
@@ -288,7 +290,7 @@ scene.setBackgroundImage(img`
     cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc
     cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc
     `)
-mySprite = sprites.create(img`
+CatHero = sprites.create(img`
     e e e . . . . e e e . . . . 
     8 1 1 6 . . 6 1 1 8 . . . . 
     8 3 1 1 f f 1 1 3 8 . . . . 
@@ -304,8 +306,8 @@ mySprite = sprites.create(img`
     . f 1 f f f 1 f f 1 f . . . 
     . f f . . f f . . f f . . . 
     `, SpriteKind.Player)
-mySprite.setStayInScreen(false)
-mySprite.sayText("MT" + " Game Studios", 5000, false)
+CatHero.setStayInScreen(false)
+CatHero.sayText("MT" + " Game Studios", 5000, false)
 timer.after(5000, function () {
     game_scene()
 })
