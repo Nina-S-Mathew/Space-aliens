@@ -20,7 +20,15 @@ controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
     music.play(music.melodyPlayable(music.pewPew), music.PlaybackMode.UntilDone)
     music.setVolume(255)
 })
+sprites.onOverlap(SpriteKind.Enemy, SpriteKind.Projectile, function (sprite, otherSprite) {
+    sprites.destroy(EnemyDog)
+    info.changeScoreBy(1)
+})
+sprites.onOverlap(SpriteKind.Enemy, SpriteKind.Player, function (sprite, otherSprite) {
+    game.gameOver(false)
+})
 function game_scene () {
+    info.setScore(0)
     scene.setBackgroundImage(img`
         ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
         ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
@@ -295,24 +303,26 @@ timer.after(5000, function () {
     game_scene()
 })
 game.onUpdateInterval(2000, function () {
-    EnemyDog = sprites.create(img`
-        . . a a a . . . . a a a . . . . 
-        . a 7 7 7 c . . c 7 7 7 a . . . 
-        a 7 7 7 7 7 c c 7 7 7 7 7 a . . 
-        a 7 7 a a 7 7 7 7 a a 7 7 a . . 
-        c 7 a a 7 7 7 7 7 7 a a 7 c . . 
-        . c c 7 7 7 7 7 7 7 7 c c . . . 
-        . . c 7 f 7 7 7 7 f 7 c . . . . 
-        . . f 7 7 7 a a 7 7 7 f . . f f 
-        . . f a 7 7 f f 7 7 5 f . f 7 f 
-        . . . f 5 5 5 5 5 5 a a f 7 7 f 
-        . . . f a 7 7 7 7 7 7 a a 7 f . 
-        . . . f 7 7 7 7 7 a 7 7 f f . . 
-        . . . f 7 f f f 7 f f 7 f . . . 
-        . . . f f . . f f . . f f . . . 
-        `, SpriteKind.Enemy)
-    EnemyDog.x = scene.screenHeight()
-    EnemyDog.y = 3
-    EnemyDog.setVelocity(0, 50)
-    EnemyDog.x = randint(1, 160)
+    timer.after(5500, function () {
+        EnemyDog = sprites.create(img`
+            . . a a a . . . . a a a . . . . 
+            . a 7 7 7 c . . c 7 7 7 a . . . 
+            a 7 7 7 7 7 c c 7 7 7 7 7 a . . 
+            a 7 7 a a 7 7 7 7 a a 7 7 a . . 
+            c 7 a a 7 7 7 7 7 7 a a 7 c . . 
+            . c c 7 7 7 7 7 7 7 7 c c . . . 
+            . . c 7 f 7 7 7 7 f 7 c . . . . 
+            . . f 7 7 7 a a 7 7 7 f . . f f 
+            . . f a 7 7 f f 7 7 5 f . f 7 f 
+            . . . f 5 5 5 5 5 5 a a f 7 7 f 
+            . . . f a 7 7 7 7 7 7 a a 7 f . 
+            . . . f 7 7 7 7 7 a 7 7 f f . . 
+            . . . f 7 f f f 7 f f 7 f . . . 
+            . . . f f . . f f . . f f . . . 
+            `, SpriteKind.Enemy)
+        EnemyDog.x = scene.screenHeight()
+        EnemyDog.y = 3
+        EnemyDog.setVelocity(0, 50)
+        EnemyDog.x = randint(1, 160)
+    })
 })
