@@ -21,11 +21,8 @@ controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
     music.setVolume(255)
 })
 sprites.onOverlap(SpriteKind.Enemy, SpriteKind.Projectile, function (sprite, otherSprite) {
-    sprites.destroy(EnemyDog)
+    sprites.destroy(sprite)
     info.changeScoreBy(1)
-})
-sprites.onOverlap(SpriteKind.Enemy, SpriteKind.Player, function (sprite, otherSprite) {
-    game.gameOver(false)
 })
 function game_scene () {
     info.setScore(0)
@@ -156,6 +153,9 @@ function game_scene () {
     CatHero.setStayInScreen(true)
     CatHero.setPosition(145, 108)
 }
+sprites.onOverlap(SpriteKind.Player, SpriteKind.Enemy, function (sprite, otherSprite) {
+    game.gameOver(false)
+})
 let EnemyDog: Sprite = null
 let projectile: Sprite = null
 let CatHero: Sprite = null
@@ -302,7 +302,7 @@ CatHero.sayText("MT" + " Game Studios", 5000, false)
 timer.after(5000, function () {
     game_scene()
 })
-game.onUpdateInterval(2000, function () {
+game.onUpdateInterval(1000, function () {
     timer.after(5500, function () {
         EnemyDog = sprites.create(img`
             . . a a a . . . . a a a . . . . 
